@@ -9,6 +9,7 @@ import org.junit.Test;
 public class CarrinhoTest {
 
     private Carrinho carrinho;
+    
 
     @Before
     public void criandoCarrinho() {
@@ -51,6 +52,14 @@ public class CarrinhoTest {
         assertArrayEquals(new Object[]{original}, new Object[]{copia});
     }
 
+    @Test
+    public void preçoNegativo()throws CarrinhoVazioExpected{
+         Produto original = new Produto("Java em 24 horas", -50.00);
+         assertArrayEquals(new Object[]{original.getPreco()}, new Object[]{-50.00});
+    }
+    
+    
+
     //adicionar outros tipos de produtos ao carrinho
     @Test
     public void adcinonarNovosTiposProdutos() {
@@ -58,6 +67,22 @@ public class CarrinhoTest {
         assertArrayEquals(new Object[]{tipo}, new Object[]{"Eletrônico"});
     }
     
+    @Test 
+    public void quantidadeProduto()
+    {
+        int x = 0;
+        
+        List<String> lista = new ArrayList<>();
+        
+        lista.add("CD Victor Léo");
+        lista.add("Bicicleta");
+        lista.add("Geladeira");
+        
+                
+       assertArrayEquals(new Object[]{lista.size()}, new Object[]{3});
+        
+    }
+            
     //listar todos os produtos do carrinho
     @Test
     public void listarProdutos(){
@@ -79,18 +104,18 @@ public class CarrinhoTest {
     public void removerProduto(){
         
         List<String> lista = new ArrayList<>();
+         
         
        
         lista.add("CD Victor Léo");
         lista.add("Bicicleta");
         lista.add("Geladeira");
-       
+        
         
         lista.remove("Geladeira");
         
-        
         assertArrayEquals(new Object[]{lista.size()}, new Object[]{2});
-        
+         
     }
     
     //Calcular o total que deve ser pago pelos produtos no carrinho
