@@ -86,7 +86,7 @@ public class CarrinhoTest {
         lista.add("Geladeira");
        
         
-        lista.remove("Sabonete");
+        lista.remove("Geladeira");
         
         
         assertArrayEquals(new Object[]{lista.size()}, new Object[]{2});
@@ -110,7 +110,7 @@ public class CarrinhoTest {
             total = total + x.doubleValue();
         }
         
-        assertArrayEquals(new Object[]{total}, new Object[]{190.00});
+        assertArrayEquals(new Object[]{total}, new Object[]{130.00});
         
     }
 }
